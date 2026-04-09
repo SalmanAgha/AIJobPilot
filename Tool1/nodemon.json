@@ -1,0 +1,5 @@
+{
+  "ignore": ["logs/*", "node_modules/*", ".git/*"],
+  "ext": "js,mjs,json,yml,yaml,md",
+  "watch": [".", "../CVBuilder"]
+}
