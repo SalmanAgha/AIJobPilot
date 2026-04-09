@@ -1,0 +1,48 @@
+# Project Plan: Job Scraper (Tool4)
+
+## Objective
+Build a robust job scraper to extract job listings, application page links, and full job descriptions from major platforms (LinkedIn, Indeed, Glassdoor).
+
+## 1. Research & Reference
+Check out these open-source repositories for inspiration and base logic:
+- https://github.com/alpharomercoma/ts-jobspy (Supports LinkedIn, Indeed, Glassdoor)
+- https://github.com/uzair-javed-1/LinkedinJobScrapper (Playwright specialized for LinkedIn)
+- https://github.com/ever-jobs/ever-jobs (Aggregator with plugin architecture)
+
+## 2. Technical Stack
+- **Runtime**: Node.js
+- **Browser Automation**: Playwright (best for modern SPAs and evading detection)
+- **Language**: JavaScript/TypeScript
+- **Data Storage**: PostgreSQL (compatible with existing Jobfinder infra)
+
+## 3. Implementation Phases
+
+### Phase 1: Setup & Configuration
+- Initialize npm project in `tool4`.
+- Install dependencies: `playwright`, `dotenv`, `pg` (for Postgres).
+- Configure `.env` for database credentials and target keywords.
+
+### Phase 2: Listing Scraper (Surface Level)
+- Develop scripts to navigate search result pages.
+- Handle pagination.
+- Extract: Job Title, Company Name, Location, and **Job Detail Link**.
+
+### Phase 3: Detail Scraper (Deep Dive)
+- Navigate to each extracted Job Detail Link.
+- Extract: Full Job Description, **Apply Page Link**, Posted Date, and Salary (if available).
+- Implement rate limiting and random delays to avoid IP bans.
+
+### Phase 4: Data Integration & Processing
+- Clean and normalize extracted data (HTML to Markdown/Plaintext).
+- Save results to the PostgreSQL `jobs` table.
+- Filter out duplicates based on Job ID or URL.
+
+### Phase 5: Automation & Maintenance
+- Create a CLI interface to trigger scrapes by keyword/location.
+- Implement error logging and retry mechanisms.
+- (Optional) Build a simple dashboard to view scraped stats.
+
+## 4. Immediate Next Steps
+1. Initialize the directory with `npm init -y`.
+2. Setup Playwright with `npx playwright install`.
+3. Create a basic proof-of-concept scraper for one target site.

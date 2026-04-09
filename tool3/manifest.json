@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "JobAssist Pro",
+  "version": "2.1",
+  "description": "Premium AI-Powered Job Application Autofiller and Analyzer.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "JobAssist Pro"
+  }
+}

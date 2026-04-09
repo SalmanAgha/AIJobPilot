@@ -1,0 +1,44 @@
+{
+  "basics": {
+    "name": "Full Name",
+    "label": "Professional Title",
+    "email": "email@example.com",
+    "phone": "000-000-0000",
+    "website": "https://linkedin.com/in/username",
+    "location": "City, Country"
+  },
+  "work": [
+    {
+      "company": "Company Name",
+      "position": "Job Title",
+      "startDate": "YYYY-MM",
+      "endDate": "YYYY-MM",
+      "highlights": [
+        "Key achievement using keywords",
+        "Quantifiable result (e.g., improved X by 20%)"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University Name",
+      "area": "Degree/Field",
+      "studyType": "Bachelor",
+      "endDate": "YYYY"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Category (e.g. Languages)",
+      "keywords": ["Skill 1", "Skill 2"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project Name",
+      "description": "Brief description",
+      "keywords": ["Tech 1", "Tech 2"],
+      "url": "https://github.com/..."
+    }
+  ]
+}
