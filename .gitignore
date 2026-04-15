@@ -27,3 +27,10 @@ useful_scripts.txt
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Large files and data
+PlatformUI_V3.zip
+tool4/*.json
+SalmanAgha_AI_2026.pdf
+*.zip
+*.pdf

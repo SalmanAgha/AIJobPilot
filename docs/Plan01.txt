@@ -1,0 +1,63 @@
+# AIJobPilot Integration Plan: Platform Migration (Phase 01)
+
+## 📌 Executive Summary
+The goal is to transform the "Platform" folder into the main production environment for AIJobPilot. We will migrate the specialized logic from legacy tools (Tool1, tool4, CVBuilder) into the high-performance Next.js 15/Express architecture of the Platform, maintaining a "Premium 2026 UI" aesthetic throughout.
+
+---
+
+## 🏗️ Phase 1: Infrastructure & Base Integration
+**Goal**: Establish the foundation within the Platform directory.
+1. **[ ] Database Setup**:
+   - Update `Platform/backend/.env` with existing PostgreSQL credentials.
+   - Extend Prisma schema to support:
+     - `Jobs` (for scraper output)
+     - `CVs` (for builder data)
+     - `Applications` (for tracking)
+     - `AIEvaluations` (for report storage)
+2. **[ ] Backend Modularization**:
+   - Create `Platform/backend/src/services/ai` to house the OpenAI/Anthropic logic from Tool1.
+   - Create `Platform/backend/src/services/scraper` to house the Playwright logic from tool4.
+3. **[ ] Theme Alignment**:
+   - Identify core CSS variables in `Platform/frontend/styles/globals.css`.
+   - Ensure all new components use these variables for a unified "Glassmorphism" look.
+
+---
+
+## 📄 Phase 2: ATS CV Builder & Evaluator
+**Goal**: Migrate the core value proposition.
+1. **[ ] Evaluator (Tool1 Implementation)**:
+   - Port the 14 AI modes (oferta, pdf, scan, etc.) into Backend controllers.
+   - Create `/dashboard/user/evaluator` page in Frontend.
+   - Implement real-time markdown rendering for AI reports using the Platform's style.
+2. **[ ] ATS CV Builder (CVBuilder Implementation)**:
+   - Migrate the PDF generation logic (Playwright-based) to the backend.
+   - Build a "Live Editor" UI at `/dashboard/user/cv-builder` using the Platform's form components.
+   - Implement the "Keyword Injection" logic as a backend service.
+
+---
+
+## 🕸️ Phase 3: Multi-Portal Scraper (Tool4)
+**Goal**: Real-time job discovery within the dashboard.
+1. **[ ] Scraper Service**:
+   - Integrate `tool4` logic into a background worker or a manual trigger API.
+   - Create `/dashboard/user/job-search` page.
+2. **[ ] Discovery UI**:
+   - Implement a high-density "Job Feed" using the Platform's data table components.
+   - Add "One-Click Evaluate" buttons that trigger the AI Evaluator service.
+
+---
+
+## 🖋️ Phase 4: Cover Letter & Interview Presentation
+**Goal**: Complete the application lifecycle.
+1. **[ ] Cover Letter Agent**:
+   - New UI at `/dashboard/user/cover-letter`.
+   - Backend logic to synthesize JD + User CV + Archetype to generate tailored letters.
+2. **[ ] Interview Presentation Agent**:
+   - Specialized mode to generate slide-ready content or talk tracks based on the application status.
+
+---
+
+## 🚀 Execution Strategy
+- **Standard**: All code must follow the Platform's patterns (Next.js server components where possible, Express services for heavy logic).
+- **Design**: No "raw" HTML; everything must use the provided UI components (Buttons, Modals, Cards) from the Platform.
+- **Progress**: This plan will be updated in `/docs/PROGRESS_LOG.md` after each major step.
